@@ -1,5 +1,5 @@
-package repository;
-import domain.Member;
+package hi.hispring.repository;
+import hi.hispring.domain.Member;
 import java.util.List;
 import java.util.Optional;
 public interface MemberRepository {

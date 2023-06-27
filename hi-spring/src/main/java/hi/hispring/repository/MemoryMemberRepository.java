@@ -1,5 +1,6 @@
-package repository;
-import domain.Member;
+package hi.hispring.repository;
+import hi.hispring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
@@ -29,12 +30,15 @@ public class MemoryMemberRepository implements MemberRepository  {
 
     @Override
     public Optional<Member> findByName(String name) {
-        return store.values().stream()
+        return store.values().stream() //loop 돌리기
+                // lambda 사용. member.getName이 input name과 같은지 확인
                 .filter(member -> member.getName().equals(name))
+                // 찾을 시 반환한다.
                 .findAny();
     }
 
     @Override
+    // store의 values는 member
     public List<Member> findAll() {
         return new ArrayList<>(store.values());
     }
