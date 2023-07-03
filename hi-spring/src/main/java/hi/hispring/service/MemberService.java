@@ -1,15 +1,20 @@
 package hi.hispring.service;
 
 import hi.hispring.domain.Member;
+import hi.hispring.repository.MemberRepository;
 import hi.hispring.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
 
-public class MemberService {
+public class MemberService{
 
-    //MemoryMemberRepository 생성
-    private final MemoryMemberRepository memberRepository =
-            new MemoryMemberRepository();
+
+    //회원 레포지토리 코드가 회원 서비스 코드를 DI 가능하게 변경
+    private final MemberRepository memberRepository;
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
 
     /**
      * 회원가입
