@@ -3,9 +3,12 @@ package hi.hispring.service;
 import hi.hispring.domain.Member;
 import hi.hispring.repository.MemberRepository;
 import hi.hispring.repository.MemoryMemberRepository;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
+//@Service
 public class MemberService{
 
 
