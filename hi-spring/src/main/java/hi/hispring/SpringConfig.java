@@ -1,6 +1,8 @@
 package hi.hispring;
-
+import hi.hispring.repository.MemberRepository;
+import hi.hispring.repository.JdbcTemplateMemberRepository;
 import hi.hispring.repository.JdbcMemberRepository;
+import hi.hispring.repository.JdbcTemplateMemberRepository;
 import hi.hispring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -24,8 +26,9 @@ public class SpringConfig {
     }
 
     @Bean
-    public JdbcMemberRepository memberRepository() {
+    public MemberRepository memberRepository() {
         //return new MemoryMemberRepository();
-        return new JdbcMemberRepository(dataSource);
+        //return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
